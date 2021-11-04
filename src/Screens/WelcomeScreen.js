@@ -12,8 +12,11 @@ function WelcomeScreen({ navigation }) {
       resizeMode="cover"
       source={require('../Assets/background.jpg')}>
       <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require('../Assets/logo-red.png')} />
-        <Text style={styles.tagline}>Welcome Screen</Text>
+        <Image
+          style={styles.logo}
+          source={require('../Assets/linistore-logo.png')}
+        />
+        <Text style={styles.tagline}>Welcome to LINISTORE</Text>
       </View>
       <View style={styles.buttonsContainer}>
         <AppButton

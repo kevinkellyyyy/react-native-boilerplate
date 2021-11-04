@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Image, View } from 'react-native';
 import * as Yup from 'yup';
-import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faLock, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 import {
   ErrorMessage,
@@ -15,8 +15,13 @@ import LoadingIndicator from '../Components/LoadingIndicator';
 import useApi from '../Hooks/useApi';
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().required().email().label('Email'),
-  password: Yup.string().required().min(4).label('Password'),
+  user_login: Yup.string()
+    .required('Phone Number field is Required')
+    .matches(
+      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+      'Phone number is not valid',
+    ),
+  password: Yup.string().required().min(8).label('Password'),
 });
 
 function LoginScreen(props) {
@@ -25,38 +30,41 @@ function LoginScreen(props) {
   const loginPost = useApi(authApi.login);
   const [failedLogin, setFailedLogin] = useState(false);
 
-  const handleSubmit = async ({ email, password }) => {
-    const result = await loginPost.request(email, password);
+  const handleSubmit = async ({ user_login, password }) => {
+    const result = await loginPost.request(user_login, password);
     if (!result.ok) {
       return setFailedLogin(true);
     }
     setFailedLogin(false);
     // save token
-    auth.logIn(result.data.response);
+    auth.logIn(result.data.result);
   };
 
   return (
     <>
       <LoadingIndicator visible={loginPost.loading} />
       <View style={styles.container}>
-        <Image style={styles.logo} source={require('../Assets/logo-red.png')} />
+        <Image
+          style={styles.logo}
+          source={require('../Assets/linistore-logo.png')}
+        />
 
         <Form
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ user_login: '', password: '' }}
           onSubmit={handleSubmit}
           validationSchema={validationSchema}>
           <ErrorMessage
-            error="Invalid email and/or password."
+            error="Invalid no.Hp and/or password."
             visible={failedLogin}
           />
           <FormField
             autoCapitalize="none"
             autoCorrect={false}
-            icon={faEnvelope}
-            keyboardType="email-address"
-            name="email"
-            placeholder="Email"
-            textContentType="emailAddress"
+            icon={faPhone}
+            keyboardType="numeric"
+            name="user_login"
+            placeholder="No. HP"
+            // textContentType="numeric"
           />
           <FormField
             autoCapitalize="none"

@@ -1,9 +1,9 @@
 import client from './client';
 
-const login = (email, password, onProgress) =>
+const login = (user_login, password, onProgress) =>
   client.post(
-    '/api/admin/admin/login/',
-    { email, password },
+    'web/auth/login',
+    { user_login, password },
     {
       onProgress: progress => onProgress(progress.loaded / progress.total),
     },

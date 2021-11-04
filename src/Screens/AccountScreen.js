@@ -38,8 +38,8 @@ function AccountScreen({ navigation }) {
     <View style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title={user.username}
-          subTitle={user.email}
+          title={user.name}
+          subTitle={user.phone_number}
           image={require('../Assets/mosh.jpg')}
         />
       </View>
