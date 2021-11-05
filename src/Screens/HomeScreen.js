@@ -36,15 +36,18 @@ function HomeScreen({ navigation }) {
           )}
           <FlatList
             data={getListingsApi.data}
+            numColumns={2}
             keyExtractor={listing => listing.id.toString()}
             renderItem={({ item }) => (
-              <Card
-                title={item.tagline}
-                subTitle={item.description}
-                imageUrl={item.image_url}
-                onPress={() => console.log(`item ${item.id} is pressed`)}
-                // resizeMode="cover"
-              />
+              <View style={styles.cardColumn}>
+                <Card
+                  title={item.tagline}
+                  subTitle={item.description}
+                  imageUrl={item.image_url}
+                  onPress={() => console.log(`item ${item.id} is pressed`)}
+                  // resizeMode="cover"
+                />
+              </View>
             )}
           />
         </View>
@@ -55,8 +58,12 @@ function HomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 20,
+    padding: 5,
     backgroundColor: colors.light,
+  },
+  cardColumn: {
+    width: '50%',
+    padding: 5,
   },
 });
 

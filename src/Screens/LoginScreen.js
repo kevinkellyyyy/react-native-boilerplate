@@ -64,7 +64,7 @@ function LoginScreen(props) {
             icon={faLock}
             name="password"
             placeholder="Password"
-            secureTextEntry
+            eyeIcon
             textContentType="password"
           />
           <SubmitButton title="Login" />
