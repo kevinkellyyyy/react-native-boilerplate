@@ -24,7 +24,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(4).label('Password'),
 });
 
-function RegisterScreen({ title }) {
+function ForgotPassword({ title }) {
   const registerApi = useApi(usersApi.register);
   const loginApi = useApi(authApi.login);
   const auth = useAuth();
@@ -34,21 +34,21 @@ function RegisterScreen({ title }) {
     alert('register button pressed');
     const result = await registerApi.request(userInfo);
 
-    if (!result.ok) {
-      if (result.data) {
-        setError(result.data.error);
-      } else {
-        setError('An unexpected error occurred.');
-        console.log(result);
-      }
-      return;
-    }
+    // if (!result.ok) {
+    //   if (result.data) {
+    //     setError(result.data.error);
+    //   } else {
+    //     setError('An unexpected error occurred.');
+    //     console.log(result);
+    //   }
+    //   return;
+    // }
 
-    const { data: authToken } = await loginApi.request(
-      userInfo.user_login,
-      userInfo.password,
-    );
-    auth.logIn(authToken);
+    // const { data: authToken } = await loginApi.request(
+    //   userInfo.user_login,
+    //   userInfo.password,
+    // );
+    // auth.logIn(authToken);
   };
 
   return (
@@ -67,13 +67,6 @@ function RegisterScreen({ title }) {
           validationSchema={validationSchema}>
           <ErrorMessage error={error} visible={error} />
           <Text>Data Diri</Text>
-
-          <FormField
-            title="Nama Lengkap"
-            autoCorrect={false}
-            name="name"
-            placeholder="Name"
-          />
 
           <FormField
             title="No. HP"
@@ -103,7 +96,7 @@ function RegisterScreen({ title }) {
             placeholder="Password Confirmation"
             textContentType="password"
           />
-          <SubmitButton title="Daftar" />
+          <SubmitButton title="Submit" />
         </Form>
       </View>
     </>
@@ -116,4 +109,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RegisterScreen;
+export default ForgotPassword;
