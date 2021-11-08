@@ -33,7 +33,7 @@ const menuItems = [
 
 function AccountScreen({ navigation }) {
   const { user, logOut } = useAuth();
-
+  console.log(user);
   return (
     <View style={styles.screen}>
       <View style={styles.container}>

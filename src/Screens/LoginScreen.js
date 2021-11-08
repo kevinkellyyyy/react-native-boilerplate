@@ -2,12 +2,6 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { StyleSheet, Image, View, Text, TouchableOpacity } from 'react-native';
 import * as Yup from 'yup';
-import {
-  faEye,
-  faEyeSlash,
-  faLock,
-  faPhone,
-} from '@fortawesome/free-solid-svg-icons';
 
 import {
   ErrorMessage,

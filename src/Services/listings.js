@@ -3,7 +3,7 @@ import client from './client';
 const endpoint = '/listings';
 
 const getListings = () =>
-  client.get('https://api.punkapi.com/v2/beers?page=1&per_page=20');
+  client.get('https://api.punkapi.com/v2/beers?page=1&per_page=15');
 
 export const addListing = (listing, onUploadProgress) => {
   const data = new FormData();
