@@ -19,15 +19,16 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     borderRadius: 25,
     justifyContent: 'center',
+    marginHorizontal: 10,
     alignItems: 'center',
     padding: 15,
-    width: '100%',
+    // width: '100%',
     marginVertical: 10,
   },
   text: {
     color: colors.white,
     fontSize: 18,
-    textTransform: 'uppercase',
+    // textTransform: 'uppercase',
     fontWeight: 'bold',
   },
 });

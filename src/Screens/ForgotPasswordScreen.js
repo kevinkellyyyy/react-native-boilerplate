@@ -96,7 +96,7 @@ function ForgotPassword({ title }) {
             placeholder="Password Confirmation"
             textContentType="password"
           />
-          <SubmitButton title="Submit" />
+          <SubmitButton style={{ borderRadius: 8 }} title="Submit" />
         </Form>
       </View>
     </>
@@ -106,6 +106,8 @@ function ForgotPassword({ title }) {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    backgroundColor: 'white',
+    flex: 1,
   },
 });
 

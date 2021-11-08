@@ -24,7 +24,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(4).label('Password'),
 });
 
-function RegisterScreen({ title }) {
+function RegisterScreen({}) {
   const registerApi = useApi(usersApi.register);
   const loginApi = useApi(authApi.login);
   const auth = useAuth();
@@ -66,10 +66,10 @@ function RegisterScreen({ title }) {
           onSubmit={handleSubmit}
           validationSchema={validationSchema}>
           <ErrorMessage error={error} visible={error} />
-          <Text>Data Diri</Text>
+          <Text style={styles.title}>Data Diri</Text>
 
           <FormField
-            title="Nama Lengkap"
+            title="Nama "
             autoCorrect={false}
             name="name"
             placeholder="Name"
@@ -103,7 +103,7 @@ function RegisterScreen({ title }) {
             placeholder="Password Confirmation"
             textContentType="password"
           />
-          <SubmitButton title="Daftar" />
+          <SubmitButton style={{ borderRadius: 8 }} title="Daftar" />
         </Form>
       </View>
     </>
@@ -113,6 +113,14 @@ function RegisterScreen({ title }) {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    backgroundColor: 'white',
+    flex: 1,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: '500',
+    paddingLeft: 10,
+    paddingBottom: 20,
   },
 });
 

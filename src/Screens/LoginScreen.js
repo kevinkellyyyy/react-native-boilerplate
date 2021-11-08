@@ -22,6 +22,7 @@ import useApi from '../Hooks/useApi';
 import AppButton from '../Components/AppButton';
 import routes from '../Navigation/routes';
 import { useNavigation } from '@react-navigation/core';
+import colors from '../Themes/colors';
 
 const validationSchema = Yup.object().shape({
   user_login: Yup.string()
@@ -83,7 +84,7 @@ function LoginScreen(props, { navigation }) {
           />
 
           <FormField
-            title="Password"
+            title="Kata Sandi"
             autoCapitalize="none"
             autoCorrect={false}
             name="password"
@@ -91,17 +92,18 @@ function LoginScreen(props, { navigation }) {
             placeholder="Password"
             textContentType="password"
           />
-          <SubmitButton title="Login" />
-          <AppButton
-            title="Register"
-            color="secondary"
-            onPress={() => navigate('Register')}
-          />
-          <AppButton
-            title="Lupa Kata Sandi"
-            color="primary"
-            onPress={() => navigate('Lupa Kata Sandi')}
-          />
+          <TouchableOpacity onPress={() => navigate('Forgot Password')}>
+            <Text style={styles.forgotPass}>Lupa Kata Sandi ?</Text>
+          </TouchableOpacity>
+
+          <SubmitButton style={{ borderRadius: 8 }} title="Masuk" />
+
+          <View style={styles.wrapperRegister}>
+            <Text style={styles.register}>Belum Punya Akun? </Text>
+            <TouchableOpacity onPress={() => navigate('Register')}>
+              <Text style={styles.clickRegister}> Daftar disini</Text>
+            </TouchableOpacity>
+          </View>
         </Form>
       </View>
     </>
@@ -109,13 +111,31 @@ function LoginScreen(props, { navigation }) {
 }
 
 const styles = StyleSheet.create({
-  phone_number: { fontSize: 18, fontWeight: '500', paddingLeft: 10 },
-  password: { fontSize: 18, fontWeight: '500', paddingLeft: 10 },
-
   container: {
     padding: 10,
-    // flex: 1,
+    flex: 1,
     backgroundColor: 'white',
+  },
+  forgotPass: {
+    color: colors.primary,
+    fontSize: 15,
+    marginBottom: 20,
+    textAlign: 'right',
+  },
+  register: {
+    color: colors.primary,
+    fontSize: 15,
+    // textAlign: 'center',
+  },
+  clickRegister: {
+    textDecorationLine: 'underline',
+    fontWeight: '700',
+    color: colors.primary,
+  },
+  wrapperRegister: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 5,
   },
   title: {
     fontSize: 30,
