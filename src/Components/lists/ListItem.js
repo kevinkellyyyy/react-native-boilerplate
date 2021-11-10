@@ -11,7 +11,6 @@ function ListItem({ title, subTitle, image, IconComponent, onPress }) {
     <View>
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
-          {IconComponent}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>
             <AppText style={styles.title} numberOfLines={1}>
@@ -23,6 +22,7 @@ function ListItem({ title, subTitle, image, IconComponent, onPress }) {
               </AppText>
             )}
           </View>
+          {IconComponent}
           {/* <FontAwesomeIcon icon={faChevronRight} size={25} /> */}
         </View>
       </TouchableHighlight>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     borderRadius: 35,
   },
   subTitle: {
-    color: colors.medium,
+    color: colors.primary,
   },
   title: {
     fontWeight: '500',

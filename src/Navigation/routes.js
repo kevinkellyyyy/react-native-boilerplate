@@ -2,7 +2,7 @@ export default Object.freeze({
   LOGIN: 'Login',
   REGISTER: 'Register',
   HOME: 'Home',
-  MYLIST: 'MyListing',
-  MYMESSAGES: 'MyMessages',
+  CHANGEPASS: 'ChangePassword',
+  PRIVACYPOLICY: 'PrivacyPolicy',
   WELCOME: 'Welcome',
 });

@@ -66,7 +66,6 @@ function ForgotPassword({ title }) {
           onSubmit={handleSubmit}
           validationSchema={validationSchema}>
           <ErrorMessage error={error} visible={error} />
-          <Text>Data Diri</Text>
 
           <FormField
             title="No. HP"

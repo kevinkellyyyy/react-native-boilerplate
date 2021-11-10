@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 
 import AppText from '../Components/AppText';
 
-function MyMessagesScreen() {
+function PrivacyPolicyScreen() {
   return (
     <View style={styles.container}>
       <AppText style={styles.text}>My Messages Screen</AppText>
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MyMessagesScreen;
+export default PrivacyPolicyScreen;
