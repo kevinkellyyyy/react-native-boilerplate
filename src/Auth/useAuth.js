@@ -20,13 +20,23 @@ const useAuth = () => {
     authStorage.storeToken(authToken);
   };
 
+  const register = authToken => {
+    const userData = jwtDecode(authToken);
+
+    // save userData to redux
+    dispatch(setUser(userData));
+
+    // save token with sequre storage
+    authStorage.storeToken(authToken);
+  };
+
   const logOut = () => {
     // setUser1(null);
     dispatch(logout());
     authStorage.removeToken();
   };
 
-  return { user, logIn, logOut };
+  return { user, logIn, register, logOut };
 };
 
 export default useAuth;

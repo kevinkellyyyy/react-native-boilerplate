@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { StyleSheet, Image, View, Text, TouchableOpacity } from 'react-native';
 import * as Yup from 'yup';
 
@@ -13,8 +12,6 @@ import authApi from '../Services/auth';
 import useAuth from '../Auth/useAuth';
 import LoadingIndicator from '../Components/LoadingIndicator';
 import useApi from '../Hooks/useApi';
-import AppButton from '../Components/AppButton';
-import routes from '../Navigation/routes';
 import { useNavigation } from '@react-navigation/core';
 import colors from '../Themes/colors';
 
@@ -38,6 +35,7 @@ function LoginScreen(props, { navigation }) {
 
   const handleSubmit = async ({ user_login, password }) => {
     const result = await loginPost.request(user_login, password);
+    console.log('test', result.ok);
     if (!result.ok) {
       return setFailedLogin(true);
     }
@@ -58,7 +56,10 @@ function LoginScreen(props, { navigation }) {
         <Text style={styles.title}>Masuk</Text>
 
         <Form
-          initialValues={{ user_login: '', password: '' }}
+          initialValues={{
+            password: '',
+            user_login: '',
+          }}
           onSubmit={handleSubmit}
           validationSchema={validationSchema}>
           <ErrorMessage
@@ -66,6 +67,7 @@ function LoginScreen(props, { navigation }) {
             visible={failedLogin}
           />
           <FormField
+            textInput
             title="No.Hp"
             maxLength={15}
             autoCapitalize="none"
@@ -78,6 +80,7 @@ function LoginScreen(props, { navigation }) {
           />
 
           <FormField
+            textInput
             title="Kata Sandi"
             autoCapitalize="none"
             autoCorrect={false}

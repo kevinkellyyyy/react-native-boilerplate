@@ -76,6 +76,15 @@ function AccountScreen({ navigation }) {
           )}
         />
       </View>
+      <Text
+        style={{
+          color: colors.primary,
+          fontWeight: 'bold',
+          fontSize: 17,
+          textAlign: 'center',
+        }}>
+        LINISTORE POS V.1.0
+      </Text>
       {/* <ListItem
         title="Log Out"
         IconComponent={<Icon name={faSignOutAlt} backgroundColor="#ffe66d" />}
@@ -97,7 +106,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   logOut: {
-    marginTop: 320,
+    marginTop: 300,
     borderWidth: 1,
     justifyContent: 'center',
     borderRadius: 8,
