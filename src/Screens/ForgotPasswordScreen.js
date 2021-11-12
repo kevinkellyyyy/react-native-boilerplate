@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, Button, ScrollView } from 'react-native';
 import * as Yup from 'yup';
 
 import {
@@ -25,12 +25,11 @@ const validationSchema = Yup.object().shape({
       'Phone number is not valid',
     )
     .label('Phone Number'),
-  password: Yup.string().required().min(8).label('Password'),
+  password: Yup.string().required('Password Harus diisi').min(8),
   password_confirmation: Yup.string()
-    .required()
+    .required('Ulangi Kata Sandi Baru Harus diisi')
     .min(8)
-    .oneOf([Yup.ref('password'), null], 'Passwords must match')
-    .label('Password'),
+    .oneOf([Yup.ref('password'), null], 'Passwords must match'),
 });
 
 function ForgotPasswordScreen(props, { navigation }) {
@@ -68,60 +67,66 @@ function ForgotPasswordScreen(props, { navigation }) {
   return (
     <>
       <LoadingIndicator visible={forgotPassPost.loading} />
-      <View style={styles.container}>
-        <Form
-          initialValues={{
-            user_login: '',
-            password: '',
-            password_confirmation: '',
-          }}
-          onSubmit={handleSubmit}
-          validationSchema={validationSchema}>
-          <ErrorMessage error={errortext} visible={error} />
+      <View style={styles.wrapperContainer}>
+        <ScrollView style={styles.container}>
+          <Form
+            initialValues={{
+              user_login: '',
+              password: '',
+              password_confirmation: '',
+            }}
+            onSubmit={handleSubmit}
+            validationSchema={validationSchema}>
+            <ErrorMessage error={errortext} visible={error} />
 
-          <FormField
-            textInput
-            title="No. HP"
-            autoCapitalize="none"
-            autoCorrect={false}
-            keyboardType="numeric"
-            name="user_login"
-            placeholder="No. HP"
-            // textContentType="emailAddress"
-          />
+            <FormField
+              textInput
+              title="No. HP"
+              autoCapitalize="none"
+              autoCorrect={false}
+              keyboardType="numeric"
+              name="user_login"
+              placeholder="No. HP"
+              // textContentType="emailAddress"
+            />
 
-          <FormField
-            textInput
-            title="Kata Sandi Baru"
-            autoCapitalize="none"
-            autoCorrect={false}
-            name="password"
-            placeholder="Password"
-            eyeIcon
-            textContentType="password"
-          />
-          <FormField
-            textInput
-            title="Ulangi Kata Sandi"
-            autoCapitalize="none"
-            autoCorrect={false}
-            eyeIcon
-            name="password_confirmation"
-            placeholder="Password Confirmation"
-            textContentType="password"
-          />
-          <View style={{ marginTop: 330 }}>
-            <SubmitButton style={{ borderRadius: 8 }} title="Submit" />
-          </View>
-        </Form>
+            <FormField
+              textInput
+              title="Kata Sandi Baru"
+              autoCapitalize="none"
+              autoCorrect={false}
+              name="password"
+              placeholder="Password"
+              eyeIcon
+              textContentType="password"
+            />
+            <FormField
+              textInput
+              title="Ulangi Kata Sandi"
+              autoCapitalize="none"
+              autoCorrect={false}
+              eyeIcon
+              name="password_confirmation"
+              placeholder="Password Confirmation"
+              textContentType="password"
+            />
+            <View style={styles.wrapperButton}>
+              <SubmitButton style={{ borderRadius: 8 }} title="Submit" />
+            </View>
+          </Form>
+        </ScrollView>
       </View>
     </>
   );
 }
 
 const styles = StyleSheet.create({
+  wrapperContainer: {
+    padding: 10,
+    backgroundColor: 'white',
+    flex: 1,
+  },
   container: {
-    padding: 20,
     backgroundColor: 'white',
     flex: 1,
   },
@@ -130,6 +135,9 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     paddingLeft: 10,
     paddingBottom: 20,
+  },
+  wrapperButton: {
+    marginTop: 260,
   },
 });
 

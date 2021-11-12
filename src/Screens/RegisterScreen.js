@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, Button, ScrollView } from 'react-native';
 import * as Yup from 'yup';
 
 import {
@@ -81,78 +81,85 @@ function RegisterScreen(props, { navigation }) {
   return (
     <>
       <LoadingIndicator visible={registerPost.loading} />
-      <View style={styles.container}>
-        <Form
-          initialValues={{
-            name: '',
-            password: '',
-            password_confirmation: '',
-            phone_number: '',
-            vendor_id: '',
-          }}
-          onSubmit={handleSubmit}
-          validationSchema={validationSchema}>
-          <ErrorMessage error={errortext} visible={error} />
 
-          <Text style={styles.title}>Data Diri</Text>
+      <View style={styles.wrapperContainer}>
+        <ScrollView style={styles.container}>
+          <Form
+            initialValues={{
+              name: '',
+              password: '',
+              password_confirmation: '',
+              phone_number: '',
+              vendor_id: '',
+            }}
+            onSubmit={handleSubmit}
+            validationSchema={validationSchema}>
+            <ErrorMessage error={errortext} visible={error} />
 
-          <FormField
-            textInput
-            title="Nama Lengkap"
-            autoCorrect={false}
-            name="name"
-            placeholder="Name"
-          />
+            <Text style={styles.title}>Data Diri</Text>
 
-          <FormField
-            textInput
-            title="No. HP"
-            autoCapitalize="none"
-            autoCorrect={false}
-            keyboardType="numeric"
-            name="phone_number"
-            placeholder="No. HP"
-            // textContentType="emailAddress"
-          />
+            <FormField
+              textInput
+              title="Nama Lengkap"
+              autoCorrect={false}
+              name="name"
+              placeholder="Name"
+            />
 
-          <FormField
-            textInput
-            title="Password"
-            autoCapitalize="none"
-            autoCorrect={false}
-            name="password"
-            placeholder="Password"
-            eyeIcon
-            textContentType="password"
-          />
-          <FormField
-            textInput
-            title="Password Confirmation"
-            autoCapitalize="none"
-            autoCorrect={false}
-            eyeIcon
-            name="password_confirmation"
-            placeholder="Password Confirmation"
-            textContentType="password"
-          />
-          <FormField
-            dropdown
-            title="Vendor"
-            autoCorrect={false}
-            name="vendor_id"
-          />
-          <View style={{ marginTop: 100 }}>
-            <SubmitButton style={{ borderRadius: 8 }} title="Daftar" />
-          </View>
-        </Form>
+            <FormField
+              textInput
+              title="No. HP"
+              autoCapitalize="none"
+              autoCorrect={false}
+              keyboardType="numeric"
+              name="phone_number"
+              placeholder="No. HP"
+              // textContentType="emailAddress"
+            />
+
+            <FormField
+              textInput
+              title="Password"
+              autoCapitalize="none"
+              autoCorrect={false}
+              name="password"
+              placeholder="Password"
+              eyeIcon
+              textContentType="password"
+            />
+            <FormField
+              textInput
+              title="Password Confirmation"
+              autoCapitalize="none"
+              autoCorrect={false}
+              eyeIcon
+              name="password_confirmation"
+              placeholder="Password Confirmation"
+              textContentType="password"
+            />
+            <FormField
+              dropdown
+              title="Vendor"
+              autoCorrect={false}
+              name="vendor_id"
+            />
+            <View style={{ marginTop: 100 }}>
+              <SubmitButton style={{ borderRadius: 8 }} title="Daftar" />
+            </View>
+          </Form>
+        </ScrollView>
       </View>
     </>
   );
 }
 
 const styles = StyleSheet.create({
+  wrapperContainer: {
+    padding: 10,
+    backgroundColor: 'white',
+    flex: 1,
+  },
   container: {
-    padding: 20,
     backgroundColor: 'white',
     flex: 1,
   },
