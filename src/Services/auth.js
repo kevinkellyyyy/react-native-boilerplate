@@ -17,7 +17,16 @@ const register = (
     phone_number,
     vendor_id,
   });
+
+const forgotPass = (user_login, password, password_confirmation) =>
+  client.post('web/auth/forgot-password', {
+    user_login,
+    password,
+    password_confirmation,
+  });
+
 export default {
   login,
   register,
+  forgotPass,
 };

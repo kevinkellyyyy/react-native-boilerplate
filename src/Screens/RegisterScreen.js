@@ -20,7 +20,11 @@ import { useFormikContext } from 'formik';
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label('Name'),
   password: Yup.string().required().min(8).label('Password'),
-  password_confirmation: Yup.string().required().min(8).label('Password'),
+  password_confirmation: Yup.string()
+    .required()
+    .min(8)
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+    .label('Password'),
   phone_number: Yup.string()
     .required('Phone Number field is Required')
     .matches(
@@ -28,7 +32,7 @@ const validationSchema = Yup.object().shape({
       'Phone number is not valid',
     )
     .label('Phone Number'),
-  vendor_id: Yup.string().required('Pilih Gudang'),
+  vendor_id: Yup.string().required('Pilih Gudang Mu'),
 });
 
 function RegisterScreen(props, { navigation }) {
@@ -137,19 +141,9 @@ function RegisterScreen(props, { navigation }) {
             autoCorrect={false}
             name="vendor_id"
           />
-
-          {/* <CheckBox
-  name="tnc"
-  disabled={false}
-  color="blue"
-  value={toggleCheckBox}
-  onValueChange={value => {
-    setToggleCheckBox(value);
-    // onChange({ name: 'tnc', value });
-  }}
-/> */}
-
-          <SubmitButton style={{ borderRadius: 8 }} title="Masuk" />
+          <View style={{ marginTop: 100 }}>
+            <SubmitButton style={{ borderRadius: 8 }} title="Daftar" />
+          </View>
         </Form>
       </View>
     </>

@@ -54,14 +54,9 @@ function AppFormField({
       )}
       {dropdown && (
         <DropDownPicker
-          style={{
-            backgroundColor: 'transparent',
-            borderColor: 'gray',
-            opacity: 0.7,
-            borderRadius: 4,
-          }}
+          style={styles.dropdown}
           name="vendor_id"
-          onPress={() => setFieldTouched('vendor_id')}
+          onClose={() => setFieldTouched('vendor_id')}
           listMode={'SCROLLVIEW'}
           placeholderStyle={{ color: 'black' }}
           placeholder="Pilih Gudang"
@@ -82,6 +77,15 @@ function AppFormField({
 
 const styles = StyleSheet.create({
   title: { fontSize: 18, fontWeight: '500', paddingLeft: 10 },
+  dropdown: {
+    marginTop: 10,
+    marginLeft: 10,
+    backgroundColor: 'transparent',
+    borderColor: '#E5E5E5',
+    opacity: 0.7,
+    borderRadius: 4,
+    width: '95%',
+  },
 });
 
 export default AppFormField;

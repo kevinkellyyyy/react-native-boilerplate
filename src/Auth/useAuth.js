@@ -30,13 +30,23 @@ const useAuth = () => {
     authStorage.storeToken(authToken);
   };
 
+  const forgotPassword = authToken => {
+    const userData = jwtDecode(authToken);
+
+    // save userData to redux
+    dispatch(setUser(userData));
+
+    // save token with sequre storage
+    authStorage.storeToken(authToken);
+  };
+
   const logOut = () => {
     // setUser1(null);
     dispatch(logout());
     authStorage.removeToken();
   };
 
-  return { user, logIn, register, logOut };
+  return { user, logIn, register, logOut, forgotPassword };
 };
 
 export default useAuth;
