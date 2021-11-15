@@ -81,12 +81,13 @@ function LoginScreen(props, { navigation }) {
 
           <FormField
             textInput
+            style={{ opacity: 0.7, width: '90%' }}
             title="Kata Sandi"
             autoCapitalize="none"
             autoCorrect={false}
             name="password"
             eyeIcon
-            placeholder="Password"
+            placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
             textContentType="password"
           />
           <TouchableOpacity onPress={() => navigate('Forgot Password')}>

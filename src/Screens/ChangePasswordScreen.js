@@ -60,6 +60,7 @@ function ChangePasswordScreen(props, { navigation }) {
           />
 
           <FormField
+            textInput
             title="Kata Sandi"
             autoCapitalize="none"
             autoCorrect={false}
@@ -70,12 +71,14 @@ function ChangePasswordScreen(props, { navigation }) {
           />
 
           <FormField
+            textInput
+            style={{ opacity: 0.7, width: '90%' }}
             title="Ulangi Kata Sandi"
             autoCapitalize="none"
             autoCorrect={false}
             name="password_confirmation"
             eyeIcon
-            placeholder="Password"
+            placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
             textContentType="password"
           />
 

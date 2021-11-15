@@ -24,7 +24,7 @@ const menuItems = [
   {
     title: 'Ubah Kata Sandi',
     icon: {
-      name: faArrowRight,
+      // name: faArrowRight,
       backgroundColor: colors.primary,
     },
     targetScreen: routes.CHANGEPASS,
@@ -32,10 +32,16 @@ const menuItems = [
   {
     title: 'Kebijakan Privasi',
     icon: {
-      name: faArrowRight,
       backgroundColor: colors.secondary,
     },
     targetScreen: routes.PRIVACYPOLICY,
+  },
+  {
+    title: 'Tentang POS LINISTORE',
+    icon: {
+      backgroundColor: colors.secondary,
+    },
+    targetScreen: routes.INFOLINISTORE,
   },
 ];
 
@@ -106,7 +112,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   logOut: {
-    marginTop: 300,
+    marginTop: 250,
     borderWidth: 1,
     justifyContent: 'center',
     borderRadius: 8,

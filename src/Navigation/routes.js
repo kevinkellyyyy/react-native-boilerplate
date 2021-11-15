@@ -4,5 +4,6 @@ export default Object.freeze({
   HOME: 'Home',
   CHANGEPASS: 'ChangePassword',
   PRIVACYPOLICY: 'PrivacyPolicy',
+  INFOLINISTORE: 'InfoLinistore',
   WELCOME: 'Welcome',
 });

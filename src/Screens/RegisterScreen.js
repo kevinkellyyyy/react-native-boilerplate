@@ -119,22 +119,24 @@ function RegisterScreen(props, { navigation }) {
 
             <FormField
               textInput
+              style={{ opacity: 0.7, width: '90%' }}
               title="Password"
               autoCapitalize="none"
               autoCorrect={false}
               name="password"
-              placeholder="Password"
+              placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
               eyeIcon
               textContentType="password"
             />
             <FormField
               textInput
+              style={{ opacity: 0.7, width: '90%' }}
               title="Password Confirmation"
               autoCapitalize="none"
               autoCorrect={false}
               eyeIcon
               name="password_confirmation"
-              placeholder="Password Confirmation"
+              placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
               textContentType="password"
             />
             <FormField

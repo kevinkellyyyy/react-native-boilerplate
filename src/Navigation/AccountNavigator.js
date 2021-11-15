@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AccountScreen from '../Screens/AccountScreen';
 import ChangePasswordScreen from '../Screens/ChangePasswordScreen';
 import PrivacyPolicyScreen from '../Screens/PrivacyPolicyScreen';
+import InfoLinstoreScreen from '../Screens/InfoLinistoreScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,13 @@ const AccountNavigator = () => {
           title: 'Kebijakan Privasi',
         }}
         component={PrivacyPolicyScreen}
+      />
+      <Stack.Screen
+        name="InfoLinistore"
+        options={{
+          title: 'Tentang LINISTORE POS',
+        }}
+        component={InfoLinstoreScreen}
       />
     </Stack.Navigator>
   );
