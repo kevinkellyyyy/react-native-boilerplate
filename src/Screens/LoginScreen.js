@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Image, View, Text, TouchableOpacity } from 'react-native';
 import * as Yup from 'yup';
-
+import defaultStyles from '../Themes/styles';
 import {
   ErrorMessage,
   Form,
@@ -81,12 +81,13 @@ function LoginScreen(props, { navigation }) {
 
           <FormField
             textInput
-            style={{ opacity: 0.7, width: '90%' }}
+            style={{ width: '90%', fontSize: 18 }}
             title="Kata Sandi"
             autoCapitalize="none"
             autoCorrect={false}
             name="password"
             eyeIcon
+            placeholderTextColor={defaultStyles.colors.medium}
             placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
             textContentType="password"
           />

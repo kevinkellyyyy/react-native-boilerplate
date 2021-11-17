@@ -91,7 +91,7 @@ function ForgotPasswordScreen(props, { navigation }) {
             />
 
             <FormField
-              style={{ opacity: 0.7, width: '90%' }}
+              style={{ opacity: 0.6, width: '90%', fontSize: 18 }}
               textInput
               title="Kata Sandi Baru"
               autoCapitalize="none"
@@ -102,7 +102,7 @@ function ForgotPasswordScreen(props, { navigation }) {
               textContentType="password"
             />
             <FormField
-              style={{ opacity: 0.7, width: '90%' }}
+              style={{ opacity: 0.6, width: '90%', fontSize: 18 }}
               textInput
               title="Ulangi Kata Sandi"
               autoCapitalize="none"

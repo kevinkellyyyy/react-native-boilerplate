@@ -67,6 +67,7 @@ function RegisterScreen(props, { navigation }) {
       phone_number,
       vendor_id,
     );
+
     console.log('ini data', result.data);
     console.log('ini ok', result.ok);
     if (!result.ok) {
@@ -103,7 +104,7 @@ function RegisterScreen(props, { navigation }) {
               title="Nama Lengkap"
               autoCorrect={false}
               name="name"
-              placeholder="Name"
+              placeholder="Nama"
             />
 
             <FormField
@@ -119,7 +120,7 @@ function RegisterScreen(props, { navigation }) {
 
             <FormField
               textInput
-              style={{ opacity: 0.7, width: '90%' }}
+              style={{ opacity: 0.6, width: '90%', fontSize: 18 }}
               title="Password"
               autoCapitalize="none"
               autoCorrect={false}
@@ -130,7 +131,7 @@ function RegisterScreen(props, { navigation }) {
             />
             <FormField
               textInput
-              style={{ opacity: 0.7, width: '90%' }}
+              style={{ opacity: 0.6, width: '90%', fontSize: 18 }}
               title="Password Confirmation"
               autoCapitalize="none"
               autoCorrect={false}
@@ -148,6 +149,10 @@ function RegisterScreen(props, { navigation }) {
             <View style={{ marginTop: 100 }}>
               <SubmitButton style={{ borderRadius: 8 }} title="Daftar" />
             </View>
+            <Button
+              title="Verifikasi Akun"
+              onPress={() => navigate('Verification')}
+            />
           </Form>
         </ScrollView>
       </View>

@@ -55,6 +55,7 @@ function AppFormField({
       {dropdown && (
         <DropDownPicker
           style={styles.dropdown}
+          zIndex={1000}
           name="vendor_id"
           onClose={() => setFieldTouched('vendor_id')}
           listMode={'SCROLLVIEW'}

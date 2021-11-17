@@ -5,6 +5,7 @@ import LoginScreen from '../Screens/LoginScreen';
 import RegisterScreen from '../Screens/RegisterScreen';
 import WelcomeScreen from '../Screens/WelcomeScreen';
 import ForgotPassword from '../Screens/ForgotPasswordScreen';
+import VerificationScreen from '../Screens/VerificationScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,14 @@ const AuthNavigator = () => (
         headerShadowVisible: false,
       }}
       component={RegisterScreen}
+    />
+    <Stack.Screen
+      name="Verification"
+      options={{
+        title: 'Verifikasi Akun',
+        headerShadowVisible: false,
+      }}
+      component={VerificationScreen}
     />
     <Stack.Screen
       name="Forgot Password"

@@ -8,6 +8,7 @@ const App = () => {
   useEffect(() => {
     RNBootSplash.hide({ duration: 250 });
   }, []);
+
   return (
     <Provider store={store}>
       <AppContainer />
